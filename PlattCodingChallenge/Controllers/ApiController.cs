@@ -22,8 +22,8 @@ namespace PlattCodingChallenge.Controllers
             Description = "Returns a list of all known planets, sorted by diameter descending"
         )]
         [SwaggerResponse(200, "Returns list of all planets", typeof(AllPlanetsViewModel))]
-        [Produces("application/json")]
-		public async Task<string> GetAllPlanets()
+        [Produces(typeof(AllPlanetsViewModel))]
+		public async Task<AllPlanetsViewModel> GetAllPlanets()
 		{
 			var model = new AllPlanetsViewModel();
 
@@ -39,7 +39,7 @@ namespace PlattCodingChallenge.Controllers
 			model.CalculateAverageDiameter();
 			model.Planets = model.Planets.OrderByDescending(x => x.NumericDiameter).ToList();
 
-			return Newtonsoft.Json.JsonConvert.SerializeObject(model);
+			return model;
 		}
 
         [HttpGet]
@@ -49,8 +49,8 @@ namespace PlattCodingChallenge.Controllers
             Description = "Returns all information about a planet as specified by a unique ID"
         )]
         [SwaggerResponse(200, "Returns the planet in question", typeof(SinglePlanetViewModel))]
-        [Produces("application/json")]
-		public async Task<string> GetPlanetById(int planetid)
+        [Produces(typeof(SinglePlanetViewModel))]
+		public async Task<SinglePlanetViewModel> GetPlanetById(int planetid)
 		{
 			var model = new SinglePlanetViewModel();
 
@@ -58,7 +58,7 @@ namespace PlattCodingChallenge.Controllers
 
 			model = Newtonsoft.Json.JsonConvert.DeserializeObject<SinglePlanetViewModel>(responseString);
 
-			return Newtonsoft.Json.JsonConvert.SerializeObject(model);
+			return model;
 		}
 
         [HttpGet]
@@ -68,8 +68,8 @@ namespace PlattCodingChallenge.Controllers
             Description = "Returns all information about a planet as specified by the name"
         )]
         [SwaggerResponse(200, "Returns the planet in question", typeof(PlanetResidentsViewModel))]
-        [Produces("application/json")]
-		public async Task<string> GetResidentsOfPlanet(string planetname)
+        [Produces(typeof(PlanetResidentsViewModel))]
+		public async Task<PlanetResidentsViewModel> GetResidentsOfPlanet(string planetname)
 		{
 			var model = new PlanetResidentsViewModel();
 
@@ -90,7 +90,7 @@ namespace PlattCodingChallenge.Controllers
 
 			model.Residents = model.Residents.OrderBy(x => x.Name).ToList();
 
-			return Newtonsoft.Json.JsonConvert.SerializeObject(model);
+			return model;
 		}
 
         [HttpGet]
@@ -100,8 +100,8 @@ namespace PlattCodingChallenge.Controllers
             Description = "Returns information regarding all known vehicles in the Star Wars universe, grouped by manufacturer"
         )]
         [SwaggerResponse(200, "Returns a list of the number of manufacturers and the number of vehicles that each produces", typeof(PlanetResidentsViewModel))]
-        [Produces("application/json")]
-		public async Task<string> VehicleSummary()
+        [Produces(typeof(VehicleSummaryViewModel))]
+		public async Task<VehicleSummaryViewModel> VehicleSummary()
 		{
 			var model = new VehicleSummaryViewModel();
 
@@ -130,7 +130,7 @@ namespace PlattCodingChallenge.Controllers
 			
 			model.VehicleCount = vehicleList.Count;
 
-			return Newtonsoft.Json.JsonConvert.SerializeObject(model);
+			return model;
 		}
     }
 }
