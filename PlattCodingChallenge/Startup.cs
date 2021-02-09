@@ -33,7 +33,9 @@ namespace PlattCodingChallenge
 									builder.WithOrigins("http://localhost:4200");
 								});
 			});
-			services.AddControllersWithViews();
+			services.AddControllersWithViews()
+				.AddJsonOptions(options => 
+                options.JsonSerializerOptions.PropertyNamingPolicy = null);;
 
 			services.AddSwaggerGen(c =>
 			{
