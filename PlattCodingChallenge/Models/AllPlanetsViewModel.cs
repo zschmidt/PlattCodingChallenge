@@ -22,7 +22,6 @@ namespace PlattCodingChallenge.Models
 			int count = Planets.Count;
 			foreach (var planet in Planets) {
 				if (planet.Diameter == "unknown") {
-					//boo undocumented values
 					//we just won't count this planet in to the average at all
 					count--;
 				} else {
