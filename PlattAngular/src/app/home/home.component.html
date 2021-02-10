@@ -3,10 +3,13 @@
 	<div class="col-6">
 		<app-planets (planetSelected)="planetSelected($event)"></app-planets>
 	</div>
-	<div class="col-3">
+	<div class="col-2">
 		<app-planet-detail [inputPlanet]="planet"></app-planet-detail>
 	</div>
-	<div class="col-3">
+	<div class="col-2">
+		<app-films [inputPlanet]="planet"></app-films>
+	</div>
+	<div class="col-2">
 		<app-planet-residents [inputPlanet]="planet"></app-planet-residents>
 	</div>
 </div>

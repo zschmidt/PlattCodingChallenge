@@ -1,0 +1,17 @@
+<div *ngIf="inputPlanet">
+	<div *ngIf="isLoading">
+		<mat-spinner></mat-spinner>
+	</div>
+	<div *ngIf="!isLoading">
+		<mat-card>
+			<mat-card-title>{{filmSummaryViewModel.PlanetName}} has been featured in {{filmSummaryViewModel.Films.length}} film(s)</mat-card-title>
+			<mat-card-content>
+				<div *ngIf="!filmSummaryViewModel.Films.length"> :( </div>
+				<div *ngFor="let film of filmSummaryViewModel.Films">
+					<app-film-detail [film]="film"></app-film-detail>
+					<br>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>

@@ -15,6 +15,8 @@ import { PlanetResidentsComponent } from './planet-residents/planet-residents.co
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { MatListModule } from '@angular/material/list';
 import { PlanetResidentDetailComponent } from './planet-resident-detail/planet-resident-detail.component';
+import { FilmsComponent } from './films/films.component';
+import { FilmDetailComponent } from './film-detail/film-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PlanetResidentDetailComponent } from './planet-resident-detail/planet-r
     PlanetDetailComponent,
     PlanetResidentsComponent,
     VehiclesComponent,
-    PlanetResidentDetailComponent
+    PlanetResidentDetailComponent,
+    FilmsComponent,
+    FilmDetailComponent
   ],
   imports: [
     BrowserModule,
