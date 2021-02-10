@@ -39,6 +39,14 @@ namespace PlattCodingChallenge.Controllers
 			model.CalculateAverageDiameter();
 			model.Planets = model.Planets.OrderByDescending(x => x.NumericDiameter).ToList();
 
+			//now lets calculate the id
+			//it seems foolish that the API doesn't include ID in their model,
+			//	but then again, maybe I'm just not seeing it due to my ineptitude
+			foreach (var planet in model.Planets) {
+				var tokens = planet.Url.Split('/');
+				planet.Id = tokens[5];
+			}
+
 			return model;
 		}
 

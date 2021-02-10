@@ -8,6 +8,7 @@ namespace PlattCodingChallenge.Models
 {
 	public class PlanetDetailsViewModel
 	{
+		public string Id { get; set; }
 		public string Name { get; set; }
 
 		public string Population { get; set; }
@@ -18,6 +19,9 @@ namespace PlattCodingChallenge.Models
 
 		[JsonProperty("orbital_period")]
 		public string LengthOfYear { get; set; }
+
+		//This is just a convenient place for me to try to parse out the id
+		public string Url { get; set; }
 
 		//how big *is* unknown?
 		public int NumericDiameter => Diameter == "unknown" ? -1 : int.Parse(Diameter);
