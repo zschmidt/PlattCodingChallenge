@@ -140,5 +140,30 @@ namespace PlattCodingChallenge.Controllers
 
 			return model;
 		}
+
+		[HttpGet]
+        [Route("api/planets/{planetid}/films")]
+        [SwaggerOperation(
+            Summary = "Gets all movies that a planet has appeared in",
+            Description = "Returns information regarding all known movies in the Star Wars universe that have taken place on a specified planet"
+        )]
+        [SwaggerResponse(200, "Returns a list of all the films that take place on a planet, ordered by release date", typeof(PlanetResidentsViewModel))]
+        [Produces(typeof(FilmSummaryViewModel))]
+		public async Task<FilmSummaryViewModel> FilmSummary(int planetid)
+		{
+			var model = new FilmSummaryViewModel();
+
+			var planet = GetPlanetById(planetid).Result;
+			model.PlanetName = planet.Name;
+
+			List<string> filmList = planet.Films;
+
+			foreach (var filmUrl in filmList) {
+				var filmString = await client.GetStringAsync(filmUrl);
+				model.Films.Add(Newtonsoft.Json.JsonConvert.DeserializeObject<SingleFilmViewModel>(filmString));
+			}
+
+			return model;
+		}
     }
 }

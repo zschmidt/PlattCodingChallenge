@@ -28,5 +28,6 @@ namespace PlattCodingChallenge.Models
 		public string Population { get; set; } = "0";
 
 		public List<string> Residents { get; set; }
+		public List<string> Films { get; set; }
 	}
 }
