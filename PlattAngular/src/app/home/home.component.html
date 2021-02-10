@@ -1,0 +1,17 @@
+<h1>Welcome to the Angular PlattCodingChallenge!</h1>
+<div class="row">
+	<div class="col-6">
+		<app-planets (planetSelected)="planetSelected($event)"></app-planets>
+	</div>
+	<div class="col-3">
+		<app-planet-detail [inputPlanet]="planet"></app-planet-detail>
+	</div>
+	<div class="col-3">
+		<app-planet-residents [inputPlanet]="planet"></app-planet-residents>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12">
+		<app-vehicles></app-vehicles>
+	</div>
+</div>

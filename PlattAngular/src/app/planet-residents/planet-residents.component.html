@@ -1,0 +1,17 @@
+<div *ngIf="inputPlanet">
+	<div *ngIf="isLoading">
+		<mat-spinner></mat-spinner>
+	</div>
+	<div *ngIf="!isLoading">
+		<mat-card>
+			<mat-card-title>{{inputPlanet.Name}} has {{residents.length}} resident(s)</mat-card-title>
+			<mat-card-content>
+				<div *ngIf="!residents.length"> :( </div>
+				<div *ngFor="let resident of residents">
+					<app-planet-resident-detail [resident]="resident"></app-planet-resident-detail>
+					<br>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>

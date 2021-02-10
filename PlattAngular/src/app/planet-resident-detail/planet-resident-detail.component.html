@@ -1,0 +1,17 @@
+<div *ngIf="resident">
+	<div *ngIf="!isLoading">
+		<mat-card>
+			<mat-card-subtitle>{{resident.Name}}</mat-card-subtitle>
+			<mat-card-content>
+				<mat-list>
+					<mat-list-item>Height: {{resident.Height}}</mat-list-item>
+					<mat-list-item>Weight: {{resident.Weight}}</mat-list-item>
+					<mat-list-item>Gender: {{resident.Gender}}</mat-list-item>
+					<mat-list-item>Hair Color: {{resident.HairColor}}</mat-list-item>
+					<mat-list-item>Eye Color: {{resident.EyeColor}}</mat-list-item>
+					<mat-list-item>Skin Color: {{resident.SkinColor}}</mat-list-item>
+				</mat-list>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>

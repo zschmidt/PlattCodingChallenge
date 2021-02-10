@@ -1,0 +1,27 @@
+<div *ngIf="!inputPlanet">Click on a planet in the table to see more information!</div>
+<div *ngIf="inputPlanet">
+	<div *ngIf="isLoading">
+		<mat-spinner></mat-spinner>
+	</div>
+	<div *ngIf="!isLoading">
+		<mat-card>
+			<mat-card-title>Details for Planet Number {{inputPlanet.Id}}</mat-card-title>
+			<mat-card-subtitle>{{planet.Name}}</mat-card-subtitle>
+			<mat-card-content>
+				<mat-list>
+					<mat-list-item>Length of Day: {{planet.LengthOfDay}} hours</mat-list-item>
+					<mat-list-item>Length of Year: {{planet.LengthOfYear}} days</mat-list-item>
+					<mat-list-item>Diameter: {{planet.Diameter}} km</mat-list-item>
+					<mat-list-item>Climate: {{planet.Climate}}</mat-list-item>
+					<mat-list-item>Gravity: {{planet.Gravity}}</mat-list-item>
+					<mat-list-item>Surface Water: {{planet.SurfaceWaterPercentage}}</mat-list-item>
+					<mat-list-item>Population: {{planet.Population}}</mat-list-item>
+				</mat-list>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>
+
+
+
+
